@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FrontEnd.Services;
 
 namespace FrontEnd
 {
@@ -32,6 +33,7 @@ namespace FrontEnd
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddSingleton<IDataSvc, DataSvc>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

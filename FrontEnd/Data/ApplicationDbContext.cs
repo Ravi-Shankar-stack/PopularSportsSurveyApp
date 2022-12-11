@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using FrontEnd.Models;
 
 namespace FrontEnd.Data
 {
@@ -12,5 +13,6 @@ namespace FrontEnd.Data
             : base(options)
         {
         }
+        public DbSet<FrontEnd.Models.Sport> Sport { get; set; }
     }
 }
