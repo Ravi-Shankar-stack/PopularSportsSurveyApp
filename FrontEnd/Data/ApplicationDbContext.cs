@@ -16,6 +16,5 @@ namespace FrontEnd.Data
         public DbSet<FrontEnd.Models.Sport> Sport { get; set; }
         public DbSet<FrontEnd.Models.Survey> Survey { get; set; }
 
-        public DbSet<FrontEnd.Models.Sportsurvey> Sportsurvey { get; set; }
     }
 }
