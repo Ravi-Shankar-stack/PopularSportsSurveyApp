@@ -4,6 +4,18 @@
     ViewData["Title"] = "Create";
 }
 
+<style>
+
+
+
+    body {
+        background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701686405.jpg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: top;
+        background-size: cover;
+    }
+</style>
 <h1>Create</h1>
 
 <h4>Sport</h4>
@@ -12,22 +24,54 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="SportName" class="control-label"></label>
+                <label asp-for="SportName" class="control-label">Sport Name</label>
                 <input asp-for="SportName" class="form-control" />
                 <span asp-validation-for="SportName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
     <a asp-action="GetSport">Back to List</a>
 </div>
+<br />
 
+@Html.ActionLink("Back", "Admin", "Home", null, new { @class = "btn btn-primary btn-large" })
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+@*<h1>Create</h1>
+
+    <h4>Sport</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="SportName" class="control-label"></label>
+                    <input asp-for="SportName" class="form-control" />
+                    <span asp-validation-for="SportName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="GetSport">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

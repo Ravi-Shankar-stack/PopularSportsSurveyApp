@@ -5,35 +5,46 @@
     Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-<html>
+<style>
 
-<body>
-    @using (Html.BeginForm("RatingSport", "Survey", FormMethod.Post))
-    {
-        <table>
-            <tr>
-                <td>
-                    Pick your Favourite Sport:
-                </td>
-                <td>
-                    @Html.DropDownListFor(m => m.SurveyId, Model.Sport, "Please Select")
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Rating :
-                </td>
-                <td>
-                    @Html.TextBoxFor(m => m.Rating)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Submit" />
-                </td>
-            </tr>
-        </table>
+    body {
+        background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701686405.jpg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: top;
+        background-size: cover;
     }
-</body>
-</html>
+</style>
+
+<h1>Sports Survey</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RatingSport">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+
+                <h4>Select Your Favorite Sport</h4>
+
+                @Html.DropDownListFor(m => m.SurveyId, Model.Sport, "Please select")
+
+                @*<label asp-for="Rating" class="control-label"></label>
+                    <input asp-for="Rating" class="form-control" />
+
+                    <span asp-validation-for="Rating" class="text-danger"></span>*@
+                <br />
+                <br />
+
+                <h3>Give Rating </h3>
+                @Html.TextBoxFor(m => m.Rating, null, new { @min = "1", @max = "10", type = "number" })
+
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

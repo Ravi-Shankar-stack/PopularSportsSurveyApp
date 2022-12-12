@@ -1,15 +1,31 @@
 ﻿@model IEnumerable<FrontEnd.Models.Survey>
 
 @{
-    ViewData["Title"] = "GetSurvey";
+    ViewData["Title"] = "SurveyResult";
 }
 
-<h1>GetSurvey</h1>
+<style>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+
+
+    body {
+        background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701686405.jpg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: top;
+        background-size: cover;
+    }
+</style>
+
+<h1>Survey Report</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+
+
+
+<table class="table color=" Blue" table-bordered">
     <thead>
         <tr>
             <th>
@@ -22,20 +38,59 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SportName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SurveyId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SurveyId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SurveyId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.SurveyId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.SurveyId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.SurveyId">Delete</a>
+                    </td>*@
+            </tr>
+        }
     </tbody>
 </table>
+
+@Html.ActionLink("Back", "Admin", "Home", null, new { @class = "btn btn-primary btn-large" })
+
+@*<h1>GetSurvey</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SportName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SurveyId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SurveyId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SurveyId">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
