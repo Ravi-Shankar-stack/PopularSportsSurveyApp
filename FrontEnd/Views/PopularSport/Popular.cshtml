@@ -1,0 +1,69 @@
+﻿@model IEnumerable<FrontEnd.Models.Popular>
+
+@{
+    ViewData["Title"] = "Popular";
+}
+<style>
+
+
+
+    body {
+        background-color: lightcoral;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: top;
+        background-size: auto;
+    }
+</style>
+
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+
+<div class="jumbotron text-center">
+    <h1>Survey Result</h1>
+
+</div>
+
+<div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SportName)
+                </th>
+                <th> @Html.DisplayNameFor(model => model.Total)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SportName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Total)
+                    </td>
+                    @*<td>
+                            <a asp-action="Edit" asp-route-id="@item.SportNmae">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.SportNmae">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.SportNmae">Delete</a>
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @ViewBag.Message <h4>App is Developed by Chandragoud</h4>
