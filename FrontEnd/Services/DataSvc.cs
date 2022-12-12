@@ -37,13 +37,13 @@ namespace FrontEnd.Services
 
         //}
 
-        //public string GetSvcPopular()
-        //{
-        //    HttpResponseMessage response = webClient.GetAsync(webClient.BaseAddress + "/Outputs").Result;
-        //    string data = response.Content.ReadAsStringAsync().Result;
-        //    return data;
+        public string GetSvcPopular()
+        {
+            HttpResponseMessage response = webClient.GetAsync(webClient.BaseAddress + "/Outputs").Result;
+            string data = response.Content.ReadAsStringAsync().Result;
+            return data;
 
-        //}
+        }
 
         //public HttpResponseMessage PostSport(StringContent str)
         //{

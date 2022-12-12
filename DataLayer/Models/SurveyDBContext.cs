@@ -21,6 +21,8 @@ namespace DataLayer.Models
 
         public virtual DbSet<Sport> Sport { get; set; }
         public virtual DbSet<Survey> Survey { get; set; }
+        public object Output { get; internal set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -57,5 +59,6 @@ namespace DataLayer.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        public DbSet<DataLayer.Models.Output> Output_1 { get; set; }
     }
 }

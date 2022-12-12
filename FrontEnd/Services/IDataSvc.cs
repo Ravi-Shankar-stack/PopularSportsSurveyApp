@@ -14,7 +14,7 @@ namespace FrontEnd.Services
 
         //public string GetSvcSurvey();
 
-        //public string GetSvcPopular();
+        public string GetSvcPopular();
 
         //public HttpResponseMessage PostSport(StringContent str);
 
