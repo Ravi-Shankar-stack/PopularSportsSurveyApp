@@ -14,7 +14,6 @@ namespace FrontEnd.Controllers
 {
     public class SurveyController : Controller
     {
-        // GET: Survey
         private IDataSvc svcRef;
 
         public SurveyController(IDataSvc dataSvc)
@@ -81,11 +80,20 @@ namespace FrontEnd.Controllers
             return ls;
         }
 
-        // GET: Survey/Edit/5
-        public ActionResult GerSurvey(int id)
-        {
-            return View();
-        }
 
+        public ActionResult GetSurvey()
+        {
+            var webClient = svcRef.GetSvcRef();
+            HttpResponseMessage response = webClient.GetAsync(webClient.BaseAddress + "/Surveys").Result;
+
+            List<Survey> sList = new List<Survey>();
+
+            if (response.IsSuccessStatusCode)
+            {
+                string data = response.Content.ReadAsStringAsync().Result;
+                sList = JsonConvert.DeserializeObject<List<Survey>>(data);
+            }
+            return View(sList);
+        }
     }
 }
