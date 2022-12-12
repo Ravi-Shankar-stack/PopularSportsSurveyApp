@@ -1,4 +1,5 @@
 ﻿using FrontEnd.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -24,14 +25,14 @@ namespace FrontEnd.Controllers
             return View();
         }
 
-        
-        //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Admin()
         {
             return View();
         }
-        //[Authorize(Roles = "User")]
-        public IActionResult User()
+        [Authorize(Roles = "User")]
+        public IActionResult Users()
         {
             return View();
         }
