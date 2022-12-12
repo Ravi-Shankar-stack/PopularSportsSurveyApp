@@ -1,0 +1,38 @@
+﻿@model FrontEnd.Models.Sportsurvey
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    @using (Html.BeginForm("RatingSport", "Survey", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    Pick your Favourite Sport:
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.SurveyId, Model.Sport, "Please Select")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rating :
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Rating)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

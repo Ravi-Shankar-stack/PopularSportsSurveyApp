@@ -25,8 +25,8 @@ namespace FrontEnd.Controllers
 
         }
 
-        
-        
+
+
         public ActionResult RatingSport()
         {
             Sportsurvey ss = new Sportsurvey();
@@ -46,14 +46,14 @@ namespace FrontEnd.Controllers
                 selectedItem.Selected = true;
                 sd.SportName = selectedItem.Text;
                 sd.Rating = surveyData.Rating;
-                sd.SurveyId = (int)surveyData.SurveyId;
+                //sd.SurveyId = (int)surveyData.SurveyId;
 
             }
 
             string data = JsonConvert.SerializeObject(sd);
             StringContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             var webClient = svcRef.GetSvcRef();
-            HttpResponseMessage response = webClient.PostAsync(webClient.BaseAddress + "/Survey", content).Result;
+            HttpResponseMessage response = webClient.PostAsync(webClient.BaseAddress + "/Surveys", content).Result;
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("RatingSport");
