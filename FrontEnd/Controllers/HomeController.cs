@@ -31,7 +31,7 @@ namespace FrontEnd.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Users")]
         public IActionResult Users()
         {
             return View();
